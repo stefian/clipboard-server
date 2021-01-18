@@ -3,6 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const redis = require('redis');
+const clipboardy = require('clipboardy');
 
 const app = express();
 
@@ -18,7 +19,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes //
 app.get('/', function (req, res) {
-  res.send('Welcome!');
+  let clipboard = clipboardy.readSync();
+  console.log(clipboard);
+  res.send(clipboard);
 });
 
 // start server //

@@ -18,3 +18,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(8867);
 console.log('Server Started on port 8867...');
+
+module.exports = app;

@@ -9,9 +9,10 @@
   "author": "stefian",
   "license": "ISC",
   "dependencies": {
-    "express": "*",
     "body-parser": "*",
+    "clipboardy": "^2.3.0",
     "ejs": "^2.4.2",
+    "express": "*",
     "morgan": "*",
     "redis": "*"
   }

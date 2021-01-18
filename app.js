@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes //
 app.get('/', function (req, res) {
-  res.send('Welcome');
+  res.send('Welcome!');
 });
 
 // start server //

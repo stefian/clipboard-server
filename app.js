@@ -16,6 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes //
+app.get('/', function (req, res) {
+  res.send('Welcome');
+});
+
+// start server //
 app.listen(8867);
 console.log('Server Started on port 8867...');
 

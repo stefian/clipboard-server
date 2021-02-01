@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const clipboardy = require('clipboardy');
 
 const app = express();
+const history = [];
 
 // ejs view engine setup //
 app.set('views', path.join(__dirname, 'views'));
@@ -21,11 +22,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   let clipboard = clipboardy.readSync();
   console.log(clipboard);
+  history.push(clipboard);
+  history.push('<hr>');
   res.send(`<!DOCTYPE html><html><body>
   <script>
   window.onblur= function() {window.onfocus= function () {location.reload(true)}};
   </script>
-  <h1>Clipboard</h1><div style="white-space: pre">${clipboard}</div></body></html>`);
+  <h1>Clipboard</h1>
+  <div style="white-space: pre">${clipboard}</div>
+  <hr>
+  <div style="white-space: pre">${history}</div>
+  </body></html>`);
 });
 
 // start server //

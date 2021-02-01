@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   let clipboard = clipboardy.readSync();
   console.log(clipboard);
-  res.send(clipboard);
+  res.send(`<!DOCTYPE html><html><body><h1>Clipboard</h1><div style="white-space: pre">${clipboard}</div></body></html>`);
 });
 
 // start server //

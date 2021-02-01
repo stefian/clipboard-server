@@ -22,14 +22,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   let clipboard = clipboardy.readSync();
   console.log(clipboard);
-  history.push(clipboard);
   history.push('<hr>');
+  history.push(clipboard);
   res.send(`<!DOCTYPE html><html><body>
   <script>
   window.onblur= function() {window.onfocus= function () {location.reload(true)}};
   </script>
   <h1>Clipboard</h1>
-  <div style="white-space: pre">${clipboard}</div>
+  <!-- <div style="white-space: pre">${clipboard}</div> -->
   <hr>
   <div style="white-space: pre">${history.reverse()}</div>
   </body></html>`);

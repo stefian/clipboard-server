@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const redis = require('redis');
+// const redis = require('redis');
 const clipboardy = require('clipboardy');
 
 const app = express();
@@ -21,7 +21,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   let clipboard = clipboardy.readSync();
   console.log(clipboard);
-  res.send(`<!DOCTYPE html><html><body><h1>Clipboard</h1><div style="white-space: pre">${clipboard}</div></body></html>`);
+  res.send(`<!DOCTYPE html><html><body>
+  <script>
+  window.onblur= function() {window.onfocus= function () {location.reload(true)}};
+  </script>
+  <h1>Clipboard</h1><div style="white-space: pre">${clipboard}</div></body></html>`);
 });
 
 // start server //

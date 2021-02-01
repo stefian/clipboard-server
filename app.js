@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
   <h1>Clipboard</h1>
   <div style="white-space: pre">${clipboard}</div>
   <hr>
-  <div style="white-space: pre">${history.reverse}</div>
+  <div style="white-space: pre">${history.reverse()}</div>
   </body></html>`);
 });
 

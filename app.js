@@ -29,6 +29,7 @@ app.get('/', function (req, res) {
   window.onblur= function() {window.onfocus= function () {location.reload(true)}};
   </script>
   <h1>Clipboard</h1>
+  <h3>ToDo: - Add Date / Time for ewach clipboard log</h3>
   <!-- <div style="white-space: pre">${clipboard}</div> -->
   <hr>
   <div style="white-space: pre">${history.reverse()}</div>
